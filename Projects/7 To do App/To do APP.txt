@@ -1,0 +1,75 @@
+In this project, I will learn how localStorage works in JavaScript by building a Todo app. LocalStorage is a web storage feature of JavaScript that lets you persist data by storing the data a a key:value pair. 
+
+I will start this project saving elements inside of variables using getElementById. I will get the form element (task-form), the dialog element, the button element that says "Add New Task", a button element that has a <svg element nested in it, a button element that says "Add Task", a button that says "Cancel", a button that says "Discard", an empty div, an input element associated with a label element that says "Title", an input element associated with a label element that says "Date", and a textArea element associated with a label element that says "Description". 
+
+Next I will create an empty array called "taskData". This array will store all the tasks along with their associated data, including title, due date, and description. This storage will allow me keep track of tasks, display them on the page, and save them to localStorage. I will also create an empty object called "currentTask" which will be used to track the state when editing and discarding tasks. 
+
+I will now work on opening and closing the form model. I will add an event listener (with a "click" event) to the openTaskFormBtn (the button that says "Add New Task") and pass an empty callback function. Inside the empty callback function, I will pass the string "hidden" (a class of the taskForm element that will be used to hide and unhide the form) as an argument of the classList.toggle method on the taskForm element. 
+
+The HTML dialog element has a showModal() method that can be used to display a modal dialog box on a web page. I will add a "click" event listener to the closeTaskFormBtn variable (the button that has a svg element nested inside of it) Inside an empty callback function, I will call the showModal() method on the confirmCloseDialog element (the dialog element). This will display a modal with the Discard and Cancel buttons. 
+
+If the user clicks the Cancel button, I want to cancel the process and close the modal so the user can continue editing. The HTML dialog element has a close() method that can be used to close a modal dialog box on a web page. To do this I will utilize that close() method by adding a "click" event listener to the cancelBtn element and call the close() method on the confirmCloseDialog element within the empty callback function. 
+
+If the user clicks the the Discard button, I want to close the modal (showing the Cancel and Discard butttons) and hide the form model. To do this, I will add a "click" event listener to the discardBtn and inside the empty callback function, I will use the close() method on the confirmCloseDialog variable. This will close the modal. To "hide" the form, I will use classList.toggle("hidden") on the taskForm element to toggle the hide class back onto the task form element. 
+
+Now it is time to get the values from the input fields (within the task form element) and save them into the taskData array (the array responsible for storing all the tasks along with their associated data). From there, I will display the information from the array onto the webpage. To start, I will add a "submit" event listener to the taskForm element and pass "e" as the parameter of the arrow function. Inisde this function will call the prevenDefault() method on the event ("e" = "submit") to prevent the browser from refreshing the page after submitting the form. 
+
+I will need to determine wheter the task being added to the taskData array already exists or not. If the task does not exist I will add it to the array. If it does exist, I will update it. To accomplish this I will use the findIndex() method. To start I will create a variable called dataArrIndex and assign it the value of taskData.findIndex() and pass in a arrow function with "item" as the parameter. Within this arrow function, I will check if the id property of "item" is strictly equal to the id property of currentTask (an object with the purpose of tracking the state when editing and discarding tasks). 
+
+Next, I need to retrieve the values from the input fields and store them in an object called taskObj. Each task will have a unique id property. To do this I will create an object called taskObj with an id property as the first property. For the value of the id property, I will retrieve the value of the titleInput field (The input associated with the label that has "Title" as its text), convert it to lowercase, and then use the split() and join() methods to hyphenate it. To ensure the id property value as a string I will use template literals. 
+
+To make the id more unique, I will add another hyphen (within the string) and use Date.now() (with an interpolation variable) which will return the number of milliseconds elapsed jince January 1, 1970; 
+
+To finish up the object, I will add a title, date, and description property with the values corrosponding to their input values. 
+
+I now want to add this object to the taskData array to keep track of each task. However, I will only do this if the task is new. If the task already exists, I will set it up for edititing. This is why I created the dataArrIndex variable, which provides the index of each task. I will create an if statement with the condition dataArrIndex === -1 to check if the task is new. If true, I will use the unshift method to add the taskObj object to the beginning of the taskData array. 
+
+Once the object is saved to the taskData array, I will display the contents of the object on the page by looping through it. To do this I will use the forEach() method on the taskData array and destructure the id, title, date, and description properties as parameters. Inside the forEach function body, I will use an addition assignment to add the contents of these deconstructed properties within the tasksContainer div using innerHTML. 
+
+After the forEach method I will want to hide the taskForm element so that the user can view the contents within the tasksContainer div. 
+
+If I try to add another task now, The input fields retain the values entered from the previous task. To resolve this issue, I need to clear the input fields after adding a task. To do this I will create a function that handles clearing those fields. I will call this function "reset". Inside the reset function I will set the value of titleInput, dateInput, and descriptionInput to an empty string and hide the taskForm element. I will also set currentTask to an empty object because at this point, currentTask will be filled with the task the user might have added. Because I'm going to hide the taskForm within the reset function I need to replace that line of code within the taskForm submit event with the reset function being called. The same line of code within the discard click event needs to be replaced with the reset function being called as well. 
+
+I only want to display the Cancel and Discard buttons to the user if there is some text present in the input fields. To begin, within the closeTaskFormBtn click event listener I will create a variable called "formInputsContainValues" that will check if there is a value in the titleInput field or the dateInput field or the descriptionInput field. I will then use a if statement to check if formInputsContainValues is true. If it is, I will use the showModal() method on the confirmCloseDialog (to bring up the modal dialog box). If it isn't I will call the reset function. 
+
+I can enhance code readability and maintainability by refactoring the submit event listener into two separate functions. The first function can be used to add the input values to taskData, while the second function can be responsible for adding the tasks to the DOM. To do this, I will will create an addOrUpdateTask function and move the dataArrIndex variable, the taskObj object, and the if statment into this function. Then I will create a function called updateTaskContainer and move the taskData.forEach() into this function. 
+
+There is still a problem. If I add a task, adn then add another, the previous task gets duplicated. This means I need to clear out the existing contents of tasksContainer before adding a new task. 
+
+To enable editing and deleting for each task, I will add an onclick attribute to both buttons (within the .forEach() method's taskContainer.innerHTML string). The value of these onclick attributes will be editTask(this) (for the Edit button) and deleteTask(this) (for the Delete) button. this is a keyword that refers to the current context. In this case, "this" points to the element that triggets the event -- the buttons. 
+
+I will then create a deleteTask function with a "buttonEl" as the parameter. I want to find the index of th etask I want to delete first. To do this I will create a dataArrIndex variable and set its value using the findIndext method on the taskData array with "item" as the parameter for the arrow callback function. Within this callback function I will check if id of item is equal to id of its parent element (the div with an id equal to the deconstructed id property of the taskData array). 
+
+I need to remove the task from the DOM useing remove(). I also need to remove the task from the taskData array using the splice() method which is an array method that modifies the array removing, replacing, or adding elements at a specified index, while also returning the removed elements. This method can take up to three arguments: the first one is the mandatory index at which to start, the second is the number of items to remove, and the third is an optional replacement element. To start I will use the remove() method to remove the parentElement of the buttonEl parameter from the DOM. 
+
+I will then create an editTask function with a buttonEl parameter. I need to find the index of the task to be edited. To do this I will create a dataArrIndex variable. For its value, I will use the findIndex() method on the taskData array and pass item as the parameter to its callback function and check if the id of the item is equal to the id of the parentElement of buttonEl. I will use square bracket notation to retrieve the task to be edited from the taskData array using the dataArrIndex. Then I will assign it to the currentTask object to keep track of it. I will stage the task for editing by setting the value of titleInput to currentTask.title, dateInput to currentTask.date, and descriptionInput to currentTask.description. I will then set the innerText of the addOrUpdateTaskBtn (the button with the text that says "Add Task") to "Update Task". I then toggle the "hidden" class on taskForm to see the edited task. 
+
+At this point, editing a task won't reflect when you submit the task. To make the editing functional, I will need to create an else block on the if statement within the addOrUpdateTask function and set taskData[dataArrIndex] to taskObj. 
+
+If I try to add a new task, edit that task, and then click on the Add New Task butotn, there will be a bug. The form button will display the incorrect text of Update Task instead of Add Task. To fix this, I will assign the string Add Task to addOrUpdateTaskBtn.innerText inside the addOrUpdateTask function.
+
+If the user attampts to edit a task but decides not to make any changes before closing the form, there is no need to display the modal with the Cancel and Discard buttons. Inside the closeTaskFormBtn event listener, I will create another variable named formInputValuesUpdated. This variable will check if the user made changes while trying to edit a task. Now I will add formInputValuesUpdated as the second mandatory condition in the if statement. This way, the Cancel and Discard buttons in the modal won't be displayed to the user if they haven't made any changes to the input fields while attempting to edit a task. 
+
+localStorage.setItem("data", JSON.stringify(myTaskArr));
+const getTaskArr = localStorage.getItem("data");
+console.log(getTaskArr);
+
+The item you retrieved is a string, as you savid it with JSON.stringify(). To view it in its orignal form before saving, you need to use JSON.parse(). I will use getItem() to retrieve the myTaskArr array again. This time I will wrap it inside the JSON.parse(), assign it to a variable called getTaskArrObj and log the getTaskArrObj to the console. 
+
+const getTaskArrObj = JSON.parse(localStorage.getItem("data")
+
+I will use the localStorage.removeItem() to remove a specific item. 
+
+localStorage.removeItem("data"); 
+
+Using localStorage.clear() won't just delete a single item from local storage but will remove all items. 
+
+Now I will save the task items to local storage when the user adds, updates, or removes a task. Inside the addOrUpdateTask function, I will use setItem() to save the tasks with a key of data, then pass the taskData array as its argument. I will make sure to stringify the taskData. This will persist data once the user adds or updates tasks. 
+
+I want a deleted task to be removed from local storage. For this, I won't need the removeItem() or clear() methods. Since I already use splice() to remove the deleted task from taskData, all I need to do now is save taskData to local storage again. 
+
+If I add, update, or remove a task it should reflect in the UI. However, that is not happening now because I have yet to retrieve the tasks. To do this, I need to modify my initial taskData array to be an empty array. I will set taskData to the retrieval of "data" from local storage or an empty array. I will parse the data coming with JSON.parse() because I saved it as a string. 
+
+const taskData = JSON.parse(localStorage.getItem("data")) || [];
+
+I've retrieved the task items now, but they still don't reflect in the UI when the page loads. However, they appear when you add a new task. I can check if there's a task inside taskData using the length of the arrar. because 0 is a falsy value all I need for the condition is array length. 

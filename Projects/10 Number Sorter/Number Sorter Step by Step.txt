@@ -1,0 +1,57 @@
+Step 5 So far in the sort number project, I have been doing basic setup. In this step I am supposed to get all of the select elements. However becasue they all have the same class name, I will be getting all of it by useing document.getElementsByClassName(). 
+
+Step 6 The .getElementsByClassName() returns an array-like object. I will be using the spread operator to convert it into an array. 
+
+Step 7 I'm using the map method to grab each value the user has submited into an aray 
+
+Step 8 I need a function (named updateUI) to update the display with the sorted numbers. The parameter of this function will have a fallback value which will be an empty array because I will be writing algorithms that won't immediately have a return value. 
+
+Step 9 I will be itterating over the array that gets passed into the updateUI function. The forEach method will take two parameters ~ num and i
+
+Step 10 I will save a span element which corosponds its select element to a variable called ouputValueNode
+
+Step 11 The innerText of outputValueNode will be the num parameter which is the number the user selects. 
+
+Step 12 I'm calling the updateUI function with inputValues as its argument. 
+
+Step 13 Now that i'm done with displaying the numbers, I will create a function (called bubbleSort with a parameter called array) which wil actually sort the array. The first sorting algorithm I will implement is the bubble sort, which start at the beginning of the array and "bubbles up" unsorted values towards the end, iterating through the array until it is completely sorted. 
+
+Step 14 I'm going to use a simple for loop to itterate over the array
+
+Step 15 Because I need to compare elements, I will use a nest for loop. This loop should iterate through every element in the array except the last one. 
+
+Step 16 For debugging purposes I will console.log(array, array[j], array[j] - 1) The first argument is the array, The second is the current iteration, the third is the next iteration
+
+Step 17 I will call the bubbleSort array in the sortInputArray function and save it to a variable called sortedValues. I will then pass the sortedValues variable into the updateUI function instead of the inputValues variable 
+
+Step 18 To achieve the "bubble up" result, I will need to check if the current element is larger than the next element. I can do this by accessing the array at j and j+1. Basically I will use an if statement to check if array[j] is > than array[j +1]. 
+
+Step 19 in the body of the if statment I will create a variable named temp which will hold the current iteration element. I will then replace the current iteration element with the next iteration element. Finally the next iteration element will be replaced with the variable temp. 
+
+Step 20 I then return the array
+
+Step 22 Time to implement another sorting algorithm. This time, I'll be implementing a selection sort. Selection sort works by finding the smallest value in the array, then swapping it with the first value in the array. Then, it finds the next smallest value in the array, and swaps it with the second value in th earray it continues iterating through the array until it is completely sorted. 
+
+Step 23 Updating the sortedValues variable to be the sult of calling the selectionsSort function instead of the bubbleSort
+
+Step 24 Like the bubbleSort function, I will be creating a for loop to iterate through the array. 
+
+Step 25 A Selection sort relies on tracking the index of the smallest value in the array. So I will declare a variable inIndex and set it to i - this ensures that if The current value is the smallest, it will be swapped with itself and not be moeved. I will need to be able to reassign the value of minIndex as I iterate through the array. I will then write another for loop. This loop needs to start at the index after i and iterate throught the rest of the array. 
+
+Step 26 Inside the nested for loop I will add a console.log() and call the values of array, array[j], and array[minIndex] to see how the nested loop works. I will then write an if statment to compare values. It will check if the array[j] value is smaller than the array[minIndex] value. If so then minIndex will contain the J value. 
+
+Step 27 Once I've found the smallest value, I will need to swap it with the current value after the nested for loop. Just like in the bubble sort, I will use a temp variable to extract the value at i, then swap the values at i and minIndex.  
+
+Step 30 The last sorting algorithm I will implement is the insertion sort. This algorithm works by building up a sorted array at the beginnin of the list. It begins the sorted array with the first element. Then it inspects the next element and swaps it backward into the sorted array until it is a sorted position, and so on. 
+
+Step 32 An insertion sort algorithm starts the sort at the beginning of the list, meaning the first element is already sorted. With this in mind, I will create a for loop that starts at the second element in the array - it should still iterate through the rest of the array. 
+
+Step 33 I will declare a currValue variable and assign it the index of each loop. I will then declare a re-assignable j variable and assign is the value of i - 1; 
+
+Step 34 For this algorithm, I'll want to use a while loop. This loop needs two conditions. F
+First, it should not run beyond the beginning of the array (accessed with j).
+Second, the loop should not run after it finds a vlue smaller than the current value. 
+
+
+https://typer.io/lobby/Pslkxl
+

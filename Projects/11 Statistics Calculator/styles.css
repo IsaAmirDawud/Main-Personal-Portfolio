@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    background: #c3cfe2;
+    text-align: center;
+    color: #2A0800;
+  }
+  
+  button {
+    cursor: pointer;
+    background-color: #2A0800;
+    border: 3px solid #c3cfe2;
+    color: white;
+  }
+  
+  input {
+    background-color: white;
+    color: #2A0800;
+    border: 1px solid #2A0800;
+  }
+  
+  .bold {
+    font-weight: bold;
+  }

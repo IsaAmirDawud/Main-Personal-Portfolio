@@ -1,0 +1,192 @@
+Step 1 Statistics is a way of using math to make sense of data. It helps us understand patterns and trends in information, so we can make predictions and decisions based on that information. 
+
+In this challenge, I will build a statistics calculator that takes a set of numbers and returns the mean, median, mode, standard deviation, and variance. 
+
+The calculate function is called when the form is submitted. 
+
+To start I will declare and empty Calculate function
+
+Step 2 To begin, the calculate function needs to find the number that was entered in the #numbers input field. To do this, I will use a .querySelector to locate the input field and then use the .value property to get the number entered. I will then store this in the value variable
+
+Step 3 Now that I have the value of the input, I need to split it into an array of numbers. I will use the .split() method to do this. I will pass /,\s*/g regex into the split method to split the value by commas. 
+
+Step 4 Because the value of an input is always a string, I will need to convert the array of strings into an array of numbers. I will use .map() to do this. .map() creates a new array, instead of mutating the original array. 
+
+I'm going to create a numbers variable and assign it the value of array.map(). 
+
+Step 5 The .map() method takes a callback function as its first argument. This callback function takes a few arguments, but the first one is the current element being processed. The callback funciton needs to return a value. In this case, I want to return the value of each element converted to a number. I can do this by using the Number() constructor, passing the element as an argument. 
+
+Step 6 A user could put any text they want into the input box. I want to make sure that I am only wirking with numbers. The Number() constructor will return NaN if the value passed to it cannot be converted to a number. 
+
+I need to filter these values out - thankfully, arrays have a method specifically for this. The filter() method will allow me to filter elements out of an array, creating a new array in the process. 
+
+I will create a filter variable and assign its the value the result of appending the filter method onto the numbers variable. 
+
+Step 7 Much like the .map() method, the .filter() method takes a callback funciton. The callback funciton takes the current element as its first argument. 
+
+The callback funciton need to return a Boolean value, which indicates whether the lement should be included in the new array. In this case, you want to return true if the element is not NaN. 
+
+However, I cannot check for equality here, because NaN is not equal to itself. Instead, I can use the iisNan() method, which returns true if the argument NaN. 
+
+I will add a callback function to the .filter() method that reutrns true if the element is not NaN
+
+Step 8 Array methods can often be chained together to perform multiple operations at once. As an exmpale: 
+
+array.map().filter(); 
+
+I will remove the filtered variable and append the .filter with its callback onto the numbers variable at the end of the .map() method. 
+
+Step 9 Now I will start writing the mean logic. To start I will create an empty funciton called getMean which will take a array parameter. 
+
+Step 10 The "mean" is the average value of all numbers in a list. The first step in calculating the mean is to take the sum of all numbers in the list. Arrays have another method, called .reduce(). The .reduce() method takes an array and applies a callback funcito to condese the array into a single value. 
+
+I will declare a sum variable and assign array.reduce() to it. 
+
+Step 11 The callback funciton in the reduce() method takes two parameters. The first is the accumulator and the second is the current element in the array. The return value for the callback becomes the value of the accumulator on the next iteration. 
+
+For the sum variable, I will pass a callback to .reduce() that takes the accumulator and the current element as parameters. The callback will return the sum of the accumulator and the current element. 
+
+Step 12 The .reduce() method takes a second argument that is used as the initial vlaue of the accumulator. Without a second argument, the .reduce() method uses the first element of the array as the accumulator, which can lead to unexpected results. 
+
+To be safe, it's best to set an initial value. I will set an initial value of the accumulator to 0. 
+
+Step 13 The next step in calculating the mean is to divide the sum of numbers by the count of numbers in the list.
+
+I will declare a mean variable and assign it the value of sum divided by the length of array. 
+
+Step 14 return the value of mean
+
+Step 15 You can actually clean this logic up a bit. Using the implicit return of an arrow function, you can directly return the value of the .reduce() method divided by the length of the array, without having to assign any variables. 
+
+Step 16 Now you need to use your new getMean function. In your calculate function, declare a mean variable and assign it the value of getMean(numbers).
+
+Step 17 To display the value of mean, your app has a #mean element ready to go.
+
+Use a .querySelector to find that element, and then set its .textContent to the value of mean.
+
+Step 18 If you test your form with a list of numbers, you should see the mean display on the page. However, this only works because freeCodeCamp's iframe has special settings. Normally, when a form is submitted, the event triggers a page refresh.
+
+To resolve this, add return false; after your calculate(); call in the onsubmit attribute.
+
+Step 19 Time to start working on the median calculation. The median is the midpoint of a set of numbers.
+
+Begin with an empty function called getMedian, which should take an array parameter.
+
+Step 20 The first step in calculating the median is to ensure the list of numbers is sorted from least to greatest. Once again, there is an array method ideal for this – the .sort() method.
+
+Declare a sorted variable and assign array.sort() to it.
+
+Step 21 By default, the .sort() method converts the elements of an array into strings, then sorts them alphabetically. This works well for strings, but not so well for numbers. For example, 10 comes before 2 when sorted as strings, but 2 comes before 10 when sorted as numbers.
+
+To fix this, you can pass in a callback function to the .sort() method. This function takes two arguments, which represent the two elements being compared. The function should return a value less than 0 if the first element should come before the second element, a value greater than 0 if the first element should come after the second element, and 0 if the two elements should remain in their current positions.
+
+To sort your numbers from smallest to largest, pass a callback function that takes parameters a and b, and returns the result of subtracting b from a.
+
+Step 22 Step 22Passed
+The next step is to find the number in the middle of the list. If the list has an odd number of numbers, the middle number is the median. If the list has an even number of numbers, the median is the average of the two middle numbers.
+
+You can check if a number is even or odd with the modulus operator, which is represented by the % symbol. This operator returns the remainder of the division of two numbers. If the remainder is 0, the number is even. If the remainder is 1, the number is odd:
+
+array.length % 2 === 0;
+Declare a median variable. Using the ternary operator, check if the length of array is even. If the length of array is even, find the two middle numbers and calculate the mean of those numbers. If the length of array is odd, find the middle number and assign it to the median variable.
+
+Step 23 Finally, return the value of median.
+
+Like the getMean function, you could condense this code into one line and reduce the number of variables you instantiate. However, it is important to remember that shorter code is not always better code. In this case, reducing the lines of code would make the code harder to read and understand, impacting future maintainability.
+
+Step 24 Like you did with your getMean function, you need to add your getMedian function to your calculate logic.
+
+Declare a variable median and assign it the value of getMedian(numbers). Then, query the DOM for the #median element and set the textContent to median.
+
+Step 25 Your next calculation is the mode, which is the number that appears most often in the list. To get started, declare a getMode function that takes the same array parameter you have been using.
+
+Step 26 In your new function, declare an empty counts object. You will use this to track the number of times each number appears in the list.
+
+Step 27 Remember that the .forEach() method allows you to run a callback function for each element in the array.
+
+Use the .forEach() method to loop through the array. In the callback, use the el parameter to access the counts object and increment the count for each number.
+
+Step 28 There are a few edge cases to account for when calculating the mode of a dataset. First, if every value appears the same number of times, there is no mode.
+
+To calculate this, you will use a Set. A Set is a data structure that only allows unique values. If you pass an array into the Set constructor, it will remove any duplicate values.
+
+Start by creating an if statement. In the condition, create a Set with new Set() and pass it the Object.values() of your counts object. If the size property of this Set is equal to 1, that tells you every value appears the same number of times. In this case, return null from your function.
+
+Step 29 Now you need to find the value that occurs with the highest frequency. You'll use the Object.keys() method for this.
+
+Start by declaring a highest variable, and assigning it the value of the counts object's Object.keys() method.
+
+Step 30 If multiple numbers in a series occur at the same highest frequency, they are all considered the mode. Otherwise, the mode is the number that occurs most often, that single number is the mode.
+
+Thankfully, you can handle both of these cases at once with the .filter() method. Start by declaring a mode variable and assigning it the value of Object.keys(counts).
+
+Step 31 Now chain the filter method to your latest Object.keys() call. The callback function should return whether the value of counts[el] is equal to your counts[highest].
+
+Step 32 Now chain the filter method to your latest Object.keys() call. The callback function should return whether the value of counts[el] is equal to your counts[highest].
+
+Step 33 Time to return your mode variable.
+
+mode is an array, so return it as a string with the .join() method. Separate the elements with a comma followed by a space.
+
+Step 34 Add your getMode() function to your calculate logic, and update the respective HTML element.
+
+Step 35 Your next calculation is the range, which is the difference between the largest and smallest numbers in the list.
+
+You previously learned about the global Math object. Math has a .min() method to get the smallest number from a series of numbers, and the .max() method to get the largest number. Here's an example that gets the smallest number from an array:
+
+const numbersArr = [2, 3, 1];
+
+console.log(Math.min(...numbersArr));
+// Expected output: 1
+Declare a getRange function that takes the same array parameter you have been using. Using Math.min(), Math.max(), and the spread operator, return the difference between the largest and smallest numbers in the list.
+
+Step 36 The variance of a series represents how much the data deviates from the mean, and can be used to determine how spread out the data are. The variance is calculated in a few steps.
+
+Start by declaring a getVariance function that takes an array parameter. Within that function, declare a mean variable and assign it the value of the getMean function, passing array as the argument.
+
+Step 37 Add the logic for calculating and displaying the range to your calculate function.
+
+Step 38 The next step is to calculate how far each element is from the mean. Declare a differences variable, and assign it the value of array.map(). For the callback, return the value of el minus mean.
+
+Step 39 The next step is to square each of the differences. To square a value, you can use the ** operator. For example, 3 ** 2 would return 9.
+
+Declare a squaredDifferences variable, and assign it the value of differences.map(). For the callback, return the value of el squared.
+
+Step 40 Next, you need to take the sum of the squared differences.
+
+Declare a sumSquaredDifferences variable, and assign it the value of squaredDifferences.reduce(). For the callback, return the sum of acc and el. Remember to set the initial value to 0.
+
+Step 41 With two .map() calls and a .reduce() call, you're creating extra arrays and iterating more times than needed. You should move all of the logic into the .reduce() call to save time and memory.
+
+Remove the differences, squaredDifferences, and sumSquaredDifferences variables (and their values). Declare a variance variable, and assign it the value of array.reduce(). For the callback, pass in your standard acc and el parameters, but leave the function body empty for now. Don't forget to set the initial value to 0.
+
+Step 42 Within your empty .reduce() callback, declare a variable difference and set it to the value of el minus mean. Then declare a squared variable, and set it to the value of difference to the power of 2. Finally, return the value of acc plus squared.
+
+Step 43 The final step in calculating the variance is to divide the sum of the squared differences by the count of numbers.
+
+Divide your .reduce() call by the length of the array (in your variance declaration). Then, return variance.
+
+Step 44 Add your new getVariance function to the calculate function, and update the respective HTML element.
+
+Step 45 Your final calculation is the standard deviation, which is the square root of the variance.
+
+Begin by declaring a getStandardDeviation function, with the array parameter. In the function body, declare a variance variable and assign it the variance of the array.
+
+Step 46 To calculate a root exponent, such as  x−−√n
+ , you can use an inverted exponent  x1/n
+ .
+
+Declare a standardDeviation variable, and use the Math.pow() function to assign it the value of  variance1/2
+ .
+
+Step 47 The Math object has a .sqrt() method specifically for finding the square root of a number.
+
+Change your standardDeviation variable to use this method instead of Math.pow().
+
+Step 48 Return your standardDeviation variable.
+
+Step 49
+
+Step 50 There is one last thing to fix. The .sort() method mutates the array it's called on. It is generally bad practice to mutate a function parameter, which array is.
+
+To fix this, add an empty .slice() call before your .sort() method. The empty .slice() call will make a shallow copy of the array, which you are free to mutate.
