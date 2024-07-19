@@ -51,9 +51,9 @@
 
     <!-- about section design-->
     <section class="about section" id="about">
-        <h2 class="about-main-heading">About <span class="highlight">Me</span></h2>
+        <h2 class="about-main-heading section-heading">About <span class="highlight">Me</span></h2>
 
-        <div class="about-container container grid">
+        <div class="about-container">
             <img src="Images/IMG_2809.remini-enhanced - Copy.jpg" alt="" class="about-img">
 
             <div class="about-data">
@@ -86,34 +86,122 @@
     </section>
 
     <!-- services section design -->
-    <section class="services" id="services">
-        <h2 class="heading">Our <span>Services</span></h2>
+    <section class="services section" id="services">
+        <h2 class="section-heading">My <span class="highlight">Services</span></h2>
 
         <div class="services-container">
+            <article class="services-card services-card-hover-effect">
+                <i class='bx bx-code-alt services-icon'></i>
+                <h2 class="services-title">Web Design</h2>
+                <p class="services-description">
+                    Beautiful and elegant designs with interfaces that are 
+                    intuitive, efficient and pleasant to use for the user.
+                </p>
 
-            <div class="services-box">
-                <i class='bx bx-code-alt'></i>
-                <h3>Web Development</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum totam ex ullam quos fuga neque nihil impedit possimus. Voluptatum unde natus soluta aliquam placeat est explicabo vero cumque ullam tempore.</p>
-                <a href="#" class="btn">Read More</a>
-            </div>
+                <button class="btn services-button">Know More</button>
 
-            <div class="services-box">
-                <i class='bx bxl-javascript' ></i>
-                <h3>Back End Development</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum totam ex ullam quos fuga neque nihil impedit possimus. Voluptatum unde natus soluta aliquam placeat est explicabo vero cumque ullam tempore.</p>
-                <a href="#" class="btn">Read More</a>
-            </div>
+                <div class="services-modal">
+                    <div class="services-modal-content">
+                        <i class='bx bx-x services-modal-close'></i>
 
-            <div class="services-box">
-                <i class='bx bxl-python' ></i>
-                <h3>Data Analysis</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum totam ex ullam quos fuga neque nihil impedit possimus. Voluptatum unde natus soluta aliquam placeat est explicabo vero cumque ullam tempore.</p>
-                <a href="#" class="btn">Read More</a>
-            </div>
+                        <h2 class="services-modal-title">Web Design</h2>
 
+                        <ul class="services-modal-list grid">
+                            <li class="services-modal-item">
+                                Implementation of fluid grids and flexible images to create layouts that adapt smoothly to different screen sizes
+                            </li>
+
+                            <li class="services-modal-item">
+                                Crafting visually stunning designs that align with the brand identity and appeal to the target audience 
+                            </li>
+
+                            <li class="services-modal-item">
+                                Utilize typography and colour to anhance readability, brand consistency, and user engagement
+                            </li>
+
+                            <li class="services-modal-item">
+                                Functional and interactive web pages using modern web technologies
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <article class="services-card">
+                <i class='fa-brands fa-js services-icon'></i>
+                <h2 class="services-title">JavaScript</h2>
+                <p class="services-description">
+                    User-friendly web applications with dynamic content, interactivity, and responsive UI. 
+                </p>
+
+                <button class="btn services-button">Know More</button>
+
+                <div class="services-modal">
+                    <div class="services-modal-content">
+                        <i class='bx bx-x services-modal-close'></i>
+
+                        <h2 class="services-modal-title">JavaScript</h2>
+
+                        <ul class="services-modal-list grid">
+                            <li class="services-modal-item">
+                                Update and manipulate the content and structure of web pages in real-time through DOM manipulation.
+                            </li>
+
+                            <li class="services-modal-item">
+                                Enhanced user interactions throught event handling.
+                            </li>
+
+                            <li class="services-modal-item">
+                                Object Oriented Programming (OOP) and Functional Programming.
+                            </li>
+
+                            <li class="services-modal-item">
+                                Algorithmic thinking, local storage, and API's.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <article class="services-card">
+                <i class='fa-brands fa-python services-icon'></i>
+                <h2 class="services-title">Python</h2>
+                <p class="services-description">
+                    Detail-oriented data analysis, data cleaning, data visualization, and predictive modeling. 
+                </p>
+
+                <button class="services-button btn ">Know More</button>
+
+                <div class="services-modal">
+                    <div class="services-modal-content">
+                        <i class='bx bx-x services-modal-close'></i>
+
+                        <h2 class="services-modal-title">Python</h2>
+
+                        <ul class="services-modal-list grid">
+                            <li class="services-modal-item">
+                                Leveraging powerful libraries for data manipulation and numerical computations
+                            </li>
+
+                            <li class="services-modal-item">
+                                Creating insightful data visualizations to help interpret and present data findings effectively
+                            </li>
+
+                            <li class="services-modal-item">
+                                Implementing deep learning models for tasks such as image recognition and natural language processing
+                            </li>
+
+                            <li class="services-modal-item">
+                                Creating scripts to automate repetitive tasks, improving productivity and efficiency
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
         </div>
     </section>
+
+    
 
     <!-- portfolio section design -->
     <section class="portfolio" id="portfolio">
@@ -121,56 +209,129 @@
 
         <div class="portfolio-container">
             <div class="portfolio-box">
-                <img src="Images/pic1.avif" alt="">
-                <div class="portfolio-layer">
-                    <h4>Web Design</h4>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consequuntur, officia corporis ad ratione voluptas praesentium incidunt debitis magnam, optio saepe. Nesciunt suscipit at, quod provident dolores cupiditate nostrum eveniet.</p>
-                    <a href="#"><i class='bx bx-link'></i></a>
+                <div class="img-card-container">
+                    <div class="img-card">
+                        <div class="overlay"></div>
+                        <div class="info">
+                            <h3>Phone Validator</h3>
+                            <span>JavaScript</span>
+                        </div>
+                        <img src="Images/Phone Number Validator.png" alt="">
+                    </div>
+                    <div class="portfolio-modal">
+                        <div class="portfolio-modal-body">
+                            <i class="bx bx-x portfolio-close-btn"></i>
+                            <h3>Phone Validator</h3>
+                            <img src="Images/Phone Number Validator.png" alt="">
+                            <p>This Project incorporates regular expressions to verify the validity of 
+                                phone numbers and checks if they are formatted correctly.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="portfolio-box">
-                <img src="Images/pic1.avif" alt="">
-                <div class="portfolio-layer">
-                    <h4>Web Design</h4>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consequuntur, officia corporis ad ratione voluptas praesentium incidunt debitis magnam, optio saepe. Nesciunt suscipit at, quod provident dolores cupiditate nostrum eveniet.</p>
-                    <a href="#"><i class='bx bx-link'></i></a>
+                <div class="img-card-container">
+                    <div class="img-card">
+                        <div class="overlay"></div>
+                        <div class="info">
+                            <h3>Statistics Calculator</h3>
+                            <span>JavaScript</span>
+                        </div>
+                        <img src="Images/Statistics Calculator.png" alt="">
+                    </div>
+                    <div class="portfolio-modal">
+                        <div class="portfolio-modal-body">
+                            <i class="bx bx-x portfolio-close-btn"></i>
+                            <h3>Statistics Calculator</h3>
+                            <img src="Images/Statistics Calculator.png" alt="">
+                            <p>This project utilizes array methods such as map(), reduce(), and filter() as well as method chaining to find the mean, median, mode, range, variance, and standard deiation from whatever list of numbers the user inputs. </p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="portfolio-box">
-                <img src="Images/pic1.avif" alt="">
-                <div class="portfolio-layer">
-                    <h4>Web Design</h4>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consequuntur, officia corporis ad ratione voluptas praesentium incidunt debitis magnam, optio saepe. Nesciunt suscipit at, quod provident dolores cupiditate nostrum eveniet.</p>
-                    <a href="#"><i class='bx bx-link'></i></a>
+                <div class="img-card-container">
+                    <div class="img-card">
+                        <div class="overlay"></div>
+                        <div class="info">
+                            <h3>Number Sorter</h3>
+                            <span>JavaScript</span>
+                        </div>
+                        <img src="Images/Number Sorter.png" alt="">
+                    </div>
+                    <div class="portfolio-modal">
+                        <div class="portfolio-modal-body">
+                            <i class="bx bx-x portfolio-close-btn"></i>
+                            <h3>Number Sorter</h3>
+                            <img src="Images/Number Sorter.png" alt="">
+                            <p>This project sorts a list of numbers from least to greatest. It utilizes multiple sorting algorithms such as, bubble sort, selection sort, and insertion sort.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="portfolio-box">
-                <img src="Images/pic1.avif" alt="">
-                <div class="portfolio-layer">
-                    <h4>Web Design</h4>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consequuntur, officia corporis ad ratione voluptas praesentium incidunt debitis magnam, optio saepe. Nesciunt suscipit at, quod provident dolores cupiditate nostrum eveniet.</p>
-                    <a href="#"><i class='bx bx-link'></i></a>
+                <div class="img-card-container">
+                    <div class="img-card">
+                        <div class="overlay"></div>
+                        <div class="info">
+                            <h3>Decimal to Binary Converter</h3>
+                            <span>JavaScript</span>
+                        </div>
+                        <img src="Images/Decimal to Binary Converter.png" alt="">
+                    </div>
+                    <div class="portfolio-modal">
+                        <div class="portfolio-modal-body">
+                            <i class="bx bx-x portfolio-close-btn"></i>
+                            <h3>Decimal to Binary Converter</h3>
+                            <img src="Images/Decimal to Binary Converter.png" alt="">
+                            <p>This project converts any number the user inputs into a binary numeral system using the concept of recursion.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="portfolio-box">
-                <img src="Images/pic1.avif" alt="">
-                <div class="portfolio-layer">
-                    <h4>Web Design</h4>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consequuntur, officia corporis ad ratione voluptas praesentium incidunt debitis magnam, optio saepe. Nesciunt suscipit at, quod provident dolores cupiditate nostrum eveniet.</p>
-                    <a href="#"><i class='bx bx-link'></i></a>
+                <div class="img-card-container">
+                    <div class="img-card">
+                        <div class="overlay"></div>
+                        <div class="info">
+                            <h3>To Do App</h3>
+                            <span>JavaScript</span>
+                        </div>
+                        <img src="Images/To Do App.png" alt="">
+                    </div>
+                    <div class="portfolio-modal">
+                        <div class="portfolio-modal-body">
+                            <i class="bx bx-x portfolio-close-btn"></i>
+                            <h3>To Do App</h3>
+                            <img src="Images/To Do App.png" alt="">
+                            <p>In this project, users can create a to do list with a title, date, and description which once created can be edited and deleted. This project utilizes form inputs, local storage, and CRUD (Create, Read, Update, Delete) operations on tasks. </p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="portfolio-box">
-                <img src="Images/pic1.avif" alt="">
-                <div class="portfolio-layer">
-                    <h4>Web Design</h4>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consequuntur, officia corporis ad ratione voluptas praesentium incidunt debitis magnam, optio saepe. Nesciunt suscipit at, quod provident dolores cupiditate nostrum eveniet.</p>
-                    <a href="#"><i class='bx bx-link'></i></a>
+                <div class="img-card-container">
+                    <div class="img-card">
+                        <div class="overlay"></div>
+                        <div class="info">
+                            <h3>Team Cards</h3>
+                            <span>JavaScript</span>
+                        </div>
+                        <img src="Images/Team Cards.png" alt="">
+                    </div>
+                    <div class="portfolio-modal">
+                        <div class="portfolio-modal-body">
+                            <i class="bx bx-x portfolio-close-btn"></i>
+                            <h3>Team Cards</h3>
+                            <img src="Images/Team Cards.png" alt="">
+                            <p>This project utilizes concepts like switch statements and default parameters to create a list of team cards that give information about a players position, number, and nickname. </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -197,6 +358,10 @@
 
     <!-- footer design -->
     <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2024 by Isa Dawud | All Rights Reserve</p>
+        </div>
+
         <div class="footer-iconTop">
             <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
         </div>
@@ -205,7 +370,9 @@
     <!-- scroll reveal -->
     <script src="https://unpkg.com/scrollreveal"></script>
 
-    <!-- custom js-->
+    <!-- custom js  -->
     <script src="script.js"></script>
+    <script src="modal.js"></script>
+    <script src="https://kit.fontawesome.com/361a5a6634.js" crossorigin="anonymous"></script>
 </body>
 </html>
