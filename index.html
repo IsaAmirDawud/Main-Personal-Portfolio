@@ -33,16 +33,15 @@
     <section class="home" id="home">
         <div class="home-content">
             <h3>Welcome to my personal portfolio!</h3>
-            <h1>Isa Dawud</h1>
-            <h3>I'm a <span class="highlight">Software Developer</span></h3>
-            <p>I am a versatile Software Developer proficient in Python and JavaScript, with strong problem-solving skills in data structures and algorithms. My web development expertise includes HTML, CSS, and 
-                JavaScript.  I deliver high-quality software solutions as a software Developer, meeting business objectives and user needs.</p>
+            <h1>Hello, I'm Isa Dawud</h1>
+            <h3>And I'm a <span class="highlight">Software Developer</span></h3>
+            <p>with extensive knowledge and years of experiece, working in web technologies, delivering quality work.</p>
             <div class="social-media">
                 <a href="https://www.instagram.com/isadawudquietman/"><i class='bx bxl-instagram'></i></a>
-                <a href="#"><i class='bx bxl-github'></i></a>
-                <a href="#"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://github.com/IsaAmirDawud"><i class='bx bxl-github'></i></a>
+                <a href="https://www.linkedin.com/in/isadawud/"><i class='bx bxl-linkedin'></i></a>
             </div>
-            <a href="#" class="btn">Download CV</a>
+            <a href="ISA DAWUD.pdf" class="btn" download>Download CV</a>
         </div>
 
         <div class="home-img">
@@ -58,8 +57,9 @@
             <img src="Images/IMG_2809.remini-enhanced - Copy.jpg" alt="" class="about-img">
 
             <div class="about-data">
-                <h3 class="about-heading">Hello, I'm Isa Dawud, Based in Canada</h3>
-                <p class="about-description">Web developer, with extensive knowledge and years of experiece, working in web technologies, delivering quality work.</p>
+                <h3 class="about-heading">Isa Dawud</h3>
+                <p class="about-description">I am a versatile Software Developer proficient in Python and JavaScript, with strong problem-solving skills in data structures and algorithms. My web development expertise includes HTML, CSS, and 
+                    JavaScript. I deliver high-quality software solutions as a software Developer, meeting business objectives and user needs.</p>
                 <div class="about-info">
                     <div class="about-box">
                         <i class='bx bxs-award about-icon'></i>
@@ -343,17 +343,20 @@
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span class="highlight">Me!</span></h2>
 
-        <form action="#">
+        <form action="https://api.web3forms.com/submit" method="POST">
+
+            <input type="hidden" name="access_key" value="667d00a1-1f0e-4b40-8551-d8918f9e23f9">
+
             <div class="input-box">
-                <input type="text" placeholder="Full Name">
-                <input type="email" placeholder="Email Address">
+                <input type="text" placeholder="Full Name" name="user-name">
+                <input type="email" placeholder="Email Address" name="user-email">
             </div>
             <div class="input-box">
-                <input type="number" placeholder="Mobile Number">
-                <input type="text" placeholder="Email Subject">
+                <input type="number" placeholder="Mobile Number" name="user-phone-number">
+                <input type="text" placeholder="Email Subject" name="subject">
             </div>
             <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-            <input type="submit" value="Send Message" class="btn">
+            <input type="submit" value="Send Message" class="btn" name="submit">
         </form>
     </section>
 
